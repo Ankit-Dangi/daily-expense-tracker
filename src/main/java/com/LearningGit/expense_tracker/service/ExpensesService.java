@@ -23,4 +23,8 @@ public class ExpensesService {
         }
         return repo.save(expense);
     }
+ // Feature 2 - View All Expenses
+    public List<Expenses> getAllExpenses() {
+        return repo.findAll();
+    }
 }

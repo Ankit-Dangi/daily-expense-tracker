@@ -3,6 +3,8 @@ package com.LearningGit.expense_tracker.controller;
 import com.LearningGit.expense_tracker.model.Expenses;
 import com.LearningGit.expense_tracker.service.ExpensesService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,5 +24,11 @@ public class ExpensesController {
     @PostMapping
     public ResponseEntity<Expenses> addExpense(@RequestBody Expenses expense) {
         return ResponseEntity.ok(service.addExpense(expense));
+    }
+    
+ // Feature 2 - View All Expenses
+    @GetMapping
+    public ResponseEntity<List<Expenses>> getAllExpenses() {
+        return ResponseEntity.ok(service.getAllExpenses());
     }
 }
