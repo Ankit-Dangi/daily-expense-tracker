@@ -1,10 +1,9 @@
-package model;
-
+package com.LearningGit.expense_tracker.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Expense {
+public class Expenses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +16,10 @@ public class Expense {
     private String note;
 
     // Default Constructor
-    public Expense() {}
+    public Expenses() {}
 
     // Parameterized Constructor
-    public Expense(Long id, String title, Double amount, String category, LocalDate date, String note) {
+    public Expenses(Long id, String title, Double amount, String category, LocalDate date, String note) {
         this.id = id;
         this.title = title;
         this.amount = amount;
@@ -48,3 +47,4 @@ public class Expense {
     public String getNote() { return note; }
     public void setNote(String note) { this.note = note; }
 }
+

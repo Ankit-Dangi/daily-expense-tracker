@@ -1,7 +1,7 @@
-package service;
+package com.LearningGit.expense_tracker.service;
 
-import model.Expense;
-import repository.ExpenseRepository;
+import com.LearningGit.expense_tracker.model.Expenses;
+import com.LearningGit.expense_tracker.repository.ExpensesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,15 +9,15 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ExpenseService {
+public class ExpensesService {
 
-	private final ExpenseRepository repo;
-	 public ExpenseService(ExpenseRepository repo) {
+	private final ExpensesRepository repo;
+	 public ExpensesService(ExpensesRepository repo) {
 	        this.repo = repo;
 	    }
 
     // Feature 1 - Add Expense
-    public Expense addExpense(Expense expense) {
+    public Expenses addExpense(Expenses expense) {
         if (expense.getAmount() <= 0) {
             throw new IllegalArgumentException("Amount must be greater than zero");
         }
