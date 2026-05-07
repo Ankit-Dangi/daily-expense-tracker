@@ -36,8 +36,11 @@ public class ExpensesService {
     public Double getMonthlySummary(int month, int year) {
         return repo.getTotalByMonth(month, year);
     }
+feature/search-by-tittle
 
     // Feature 5 - Delete Expense
+
+ main
     public String deleteExpense(Long id) {
         if (!repo.existsById(id)) {
             throw new RuntimeException("Expense with id " + id + " does not exist!");
@@ -45,6 +48,7 @@ public class ExpensesService {
         repo.deleteById(id);
         return "Expense with id " + id + " deleted successfully!";
     }
+feature/search-by-tittle
 
     // Feature 6 - Update Expense
     public Expenses updateExpense(Long id, Expenses updatedExpense) {
@@ -64,4 +68,5 @@ public class ExpensesService {
     public List<Expenses> searchByTitle(String title) {
         return repo.findByTitleContainingIgnoreCase(title);
     }
+ main
 }
