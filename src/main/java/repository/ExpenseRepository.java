@@ -1,6 +1,6 @@
 package repository;
 
-import model;
+import model.Expense;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
