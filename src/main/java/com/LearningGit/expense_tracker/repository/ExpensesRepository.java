@@ -17,6 +17,10 @@ public interface ExpensesRepository extends JpaRepository<Expenses, Long> {
     @Query("SELECT SUM(e.amount) FROM Expenses e WHERE MONTH(e.date) = :month AND YEAR(e.date) = :year")
     Double getTotalByMonth(@Param("month") int month, @Param("year") int year);
 
+    // Feature 5 - Delete (no extra code needed)
+
+    // Feature 6 - Update (no extra code needed)
+
     // Feature 7 - Search by Title
     List<Expenses> findByTitleContainingIgnoreCase(String title);
 }
