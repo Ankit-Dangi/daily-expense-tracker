@@ -27,4 +27,9 @@ public class ExpensesService {
     public List<Expenses> getAllExpenses() {
         return repo.findAll();
     }
+    
+ // Feature 3 - Filter by Category
+    public List<Expenses> getByCategory(String category) {
+        return repo.findByCategory(category);
+    }
 }
