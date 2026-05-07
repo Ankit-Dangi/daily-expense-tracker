@@ -18,21 +18,25 @@ public class ExpensesController {
         this.service = service;
     }
 
+    // Feature 1 - Add Expense
     @PostMapping
     public ResponseEntity<Expenses> addExpense(@RequestBody Expenses expense) {
         return ResponseEntity.ok(service.addExpense(expense));
     }
 
+    // Feature 2 - View All Expenses
     @GetMapping
     public ResponseEntity<List<Expenses>> getAllExpenses() {
         return ResponseEntity.ok(service.getAllExpenses());
     }
 
+    // Feature 3 - Filter by Category
     @GetMapping("/category/{category}")
     public ResponseEntity<List<Expenses>> getByCategory(@PathVariable String category) {
         return ResponseEntity.ok(service.getByCategory(category));
     }
 
+    // Feature 4 - Monthly Summary
     @GetMapping("/summary")
     public ResponseEntity<Double> getMonthlySummary(
             @RequestParam int month,
@@ -40,11 +44,12 @@ public class ExpensesController {
         return ResponseEntity.ok(service.getMonthlySummary(month, year));
     }
 
-    @DeleteMapping("/{id}")
+    // Feature 5 - Delete Expense
     public ResponseEntity<String> deleteExpense(@PathVariable Long id) {
         return ResponseEntity.ok(service.deleteExpense(id));
     }
 
+    // Feature 6 - Update Expense
     @PutMapping("/{id}")
     public ResponseEntity<Expenses> updateExpense(
             @PathVariable Long id,
@@ -52,6 +57,7 @@ public class ExpensesController {
         return ResponseEntity.ok(service.updateExpense(id, updatedExpense));
     }
 
+    // Feature 7 - Search by Title
     @GetMapping("/search")
     public ResponseEntity<List<Expenses>> searchByTitle(@RequestParam String title) {
         return ResponseEntity.ok(service.searchByTitle(title));
