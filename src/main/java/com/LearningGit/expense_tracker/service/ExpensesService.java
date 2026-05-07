@@ -37,4 +37,26 @@ public class ExpensesService {
     public Double getMonthlySummary(int month, int year) {
         return repo.getTotalByMonth(month, year);
     }
-}
+    
+ // Feature 5 - Delete Expense
+    public String deleteExpense(Long id) {
+        if (!repo.existsById(id)) {
+            throw new RuntimeException("Expense not found with id: " + id);
+        }
+        repo.deleteById(id);
+        return "Expense deleted successfully!";
+    }
+    
+ // Feature 6 - Update Expense
+    public Expenses updateExpense(Long id, Expenses updatedExpense) {
+        Expenses existing = repo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Expense not found with id: " + id));
+
+        existing.setTitle(updatedExpense.getTitle());
+        existing.setAmount(updatedExpense.getAmount());
+        existing.setCategory(updatedExpense.getCategory());
+        existing.setDate(updatedExpense.getDate());
+        existing.setNote(updatedExpense.getNote());
+
+        return repo.save(existing);
+    }

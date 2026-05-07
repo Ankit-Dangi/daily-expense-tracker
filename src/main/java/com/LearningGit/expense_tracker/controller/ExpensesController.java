@@ -46,4 +46,18 @@ public class ExpensesController {
             @RequestParam int year) {
         return ResponseEntity.ok(service.getMonthlySummary(month, year));
     }
+    
+ // Feature 5 - Delete Expense
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteExpense(@PathVariable Long id) {
+        return ResponseEntity.ok(service.deleteExpense(id));
+    }
+    
+ // Feature 6 - Update Expense
+    @PutMapping("/{id}")
+    public ResponseEntity<Expenses> updateExpense(
+            @PathVariable Long id,
+            @RequestBody Expenses updatedExpense) {
+        return ResponseEntity.ok(service.updateExpense(id, updatedExpense));
+    }
 }
